@@ -1,25 +1,16 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 class App extends React.Component {
 constructor() {
 super();
-this.state = {
-msg: "Welcome to React"
-};
-this.updateSetState = this.updateSetState.bind(this);
+this.forceUpdateState = this.forceUpdateState.bind(this);
 }
-updateSetState() {
-this.setState({
-msg:"React the best"
-});
-}
-render() {
-  return (
-  <div>
-  <h1>{this.state.msg}</h1>
-  <button onClick = {this.updateSetState}>Change the state</button>
-  </div>
-  );
-  }
-  }
-  export default App;
+forceUpdateState() {
+this.forceUpdate(); // actualiser le component sans actualiser la page ni relire les methodes
+}; render() {
+return (
+<div>
+<h1>Example to generate random number</h1>
+<h3>Random number: {Math.random()}</h3>
+<button onClick = {this.forceUpdateState}>ForceUpdate</button>
+</div>
+); } } export default App;
